@@ -16,13 +16,30 @@
         </div>
     </div>
 
-<div class="container image-container my-5">
-    <div class="row image-container justify-content-center" id="category">
+<div class="container my-5">
+    <div class="row justify-content-center" id="category">
+        <div class="col-12 col-md-6">
+            <p class="overonstext"> <?php echo get_field('over_ons'); ?> </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid my-5">
+    <div class="row justify-content-center" id="category">
+        <div class="col-12 g-0">
+        <?php $image = get_field('banner'); ?>
+        <img class="banner-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"></img>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center" id="category">
         <?php
             if( have_rows('category_field') ):
                 while( have_rows('category_field') ) : the_row();
                     $image = get_sub_field('category_image'); ?>
-                <div class="col-6 col-md-4 mb-3">
+                <div class="col-6 col-md-3 mb-3 image-container">
                     <div class="image">
                         <img class="category-image" src="<?= esc_url($image['sizes']["medium"]);  ?>" alt="">
                         <div class="card-title">
@@ -35,4 +52,7 @@
        <?php endif;?>
     </div>
 </div>
+
+
+
 <?php get_footer(); ?>

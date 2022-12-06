@@ -30,8 +30,12 @@
         <div class="col-6">
             <div class="info">
                 <p>Adres:</p>
-                <a href="mailto:bartek.filik@hotmail.com">bartek.filik@hotmail.com</a>
-                <a href="tel:012 3456789">+012 3456789</a>
+                <a href="mailto:bartek.filik@hotmail.com">
+                    <img src="http://p3.local/wp-content/themes/flashwave/assets/images/icons8-mail.svg" width="25" height="25">
+                    bartek.filik@hotmail.com</a>
+                <a href="tel:012 3456789">
+                <img src="http://p3.local/wp-content/themes/flashwave/assets/images/icons8-phone.svg" width="25" height="25">    
+                +012 3456789</a>
             </div>
         </div>
         <div class="col-12">
