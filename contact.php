@@ -39,6 +39,11 @@
             </div>
         </div>
         <div class="col-12">
+            <div class="emailform">
+            <?php echo do_shortcode('[yikes-mailchimp form="1"]'); ?>
+            </div>
+        </div>
+        <div class="col-12">
             <div class="locatie">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39606.721753865044!2d5.243216731030162!3d51.65214419554635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6eec8e0e9a72b%3A0x603ab98882725f7c!2sVught!5e0!3m2!1snl!2snl!4v1668699771678!5m2!1snl!2snl" 
                   style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -46,6 +51,8 @@
         </div>
     </div>
 </div>
+
+
 
 <?php get_footer(); ?>
 

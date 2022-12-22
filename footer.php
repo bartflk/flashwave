@@ -1,23 +1,22 @@
 <footer>
     <div class="container footer-container">
         <div class="row">
-            <div class="col-12 col-md-2 col-xl-3 text-center">
+            <div class="col-12 col-md-6 col-xl-6 text-center">
                 <div class="colbox">
                     <a class="copyrighttext" href="">Textiel drukkerij</a>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-instagram"></a>
                 </div>
             </div>
-                <div class="col-12 col-sm-6 offset-md-2 col-md-4  offset-xl-3 col-xl-3 ">
-                    <div class="colbox">
-
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <div class="col-12 col-sm-12 col-md-6 col-xl-6">
                     <div class="colbox">
                         <div class="fancyline"></div>
-                        <p class="" ><?= get_field('straat', 'options'); ?></p>
-                        <p class="" ><?= get_field('plaats_en_postcode', 'options'); ?></p>
-                        <a class="" href="mailto:<?= get_field('email', 'options'); ?>"><?= get_field('email', 'options'); ?></a>
-                        <a class="" href="tel:<?= get_field('telefoonnummer', 'options'); ?>"><?= get_field('telefoonnummer', 'options'); ?></a>
+                        <p class="footerinfo" ><?= get_field('straat', 'options'); ?></p>
+                        <p class="footerinfo" ><?= get_field('plaats_en_postcode', 'options'); ?></p>
+                        <a class="footerinfo" href="mailto:<?= get_field('email', 'options'); ?>"><?= get_field('email', 'options'); ?></a>
+                        <a class="footerinfo" href="tel:<?= get_field('telefoonnummer', 'options'); ?>"><?= get_field('telefoonnummer', 'options'); ?></a>
                         <div class="fancyline"></div>
                     </div>
                 </div>

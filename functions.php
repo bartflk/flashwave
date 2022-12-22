@@ -83,11 +83,12 @@ function register_my_menus() {
   function add_theme_scripts() {
 
     wp_enqueue_style( 'cssreset', get_template_directory_uri() . '/assets/css/reset.css', array(), '');  
-
+    wp_enqueue_style( 'iconlibrary', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
     wp_enqueue_script( 'bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' );
     wp_enqueue_style( 'flashwave', get_template_directory_uri() . '/assets/css/flashwave.css', array(), '');  
     wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/script.js', array (), '' , true );
+    
 
     
       if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -146,3 +147,39 @@ elseif ( is_wc_endpoint_url( 'downloads' ) && in_the_loop() ) {
   return $title;
 }
 add_filter( 'the_title', 'wpb_woo_endpoint_title', 10, 2 );
+
+
+
+function wpcf7_form_dropdown_products ( $scanned_tag, $replace ) {  
+  
+  if ( $scanned_tag['name'] != 'product' )  
+      return $scanned_tag;
+
+  
+  $rows = get_posts(
+    array ( 
+     'post_type' => 'product',
+     'numberposts' => -1,  
+     'orderby' => 'title',  
+     'order' => 'ASC' 
+      )
+  );  
+
+
+  if ( ! $rows )  
+      return $scanned_tag;
+
+  foreach ( $rows as $row ) {  
+      $scanned_tag['raw_values'][] = $row->post_title . '|' . $row->post_title;
+  }
+
+  $pipes = new WPCF7_Pipes($scanned_tag['raw_values']);
+
+  $scanned_tag['values'] = $pipes->collect_befores();
+  $scanned_tag['labels'] = $pipes->collect_afters();
+  $scanned_tag['pipes'] = $pipes;
+
+  return $scanned_tag;  
+}  
+
+add_filter( 'wpcf7_form_tag', 'wpcf7_form_dropdown_products', 10, 2);  

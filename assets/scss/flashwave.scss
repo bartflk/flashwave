@@ -9,6 +9,7 @@ html {
     background-color: #FAF5F0;
     color: black;
     font-family: Helvetica, sans-serif;
+    overscroll-behavior-y: none;
   }
   h1{
     font-size: 36px;
@@ -127,7 +128,7 @@ html {
     }
     .copyright{
       .copyrighttext{
-          font-size: 12px;
+          font-size: 8px;
       }
     }
     .copyrighttext{
@@ -1400,7 +1401,7 @@ Label the data
   box-shadow: none!important;
 }
 .image-container{
-  height: 72vh;
+  height: 45vh;
   .image{
     position: relative;
     height: 100%;
@@ -1462,7 +1463,31 @@ Label the data
   }
 }
 .banner-image{
-  height: 30vh;
+  height: 35vh;
   object-fit: cover;
   width: 100%;
+}
+.emailform{
+  padding: 2rem !important;
+}
+.footerinfo{
+  text-align: center;
+}
+.designblock{
+  padding: 1rem;
+  width: 100%;
+  .wpcf7{
+    #file-upload-button{
+      background-color: white;
+    }
+    label{
+  
+      span{
+       
+        input{
+       
+        }
+      }
+    }
+  }
 }

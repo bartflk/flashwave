@@ -8,6 +8,7 @@ body {
   background-color: #FAF5F0;
   color: black;
   font-family: Helvetica, sans-serif;
+  overscroll-behavior-y: none;
 }
 
 h1 {
@@ -128,7 +129,7 @@ footer a.copyrighttext {
   text-decoration: none;
 }
 footer .copyright .copyrighttext {
-  font-size: 12px;
+  font-size: 8px;
 }
 footer .copyrighttext {
   padding-top: 5px;
@@ -1349,7 +1350,7 @@ footer a {
 }
 
 .image-container {
-  height: 72vh;
+  height: 45vh;
 }
 .image-container .image {
   position: relative;
@@ -1414,7 +1415,23 @@ footer a {
 }
 
 .banner-image {
-  height: 30vh;
+  height: 35vh;
   object-fit: cover;
   width: 100%;
+}
+
+.emailform {
+  padding: 2rem !important;
+}
+
+.footerinfo {
+  text-align: center;
+}
+
+.designblock {
+  padding: 1rem;
+  width: 100%;
+}
+.designblock .wpcf7 #file-upload-button {
+  background-color: white;
 }/*# sourceMappingURL=flashwave.css.map */
