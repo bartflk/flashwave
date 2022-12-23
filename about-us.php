@@ -1,8 +1,9 @@
 <?php /* Template Name: Over ons */ ?>
 <?php get_header(); ?>
 <?php get_template_part('/template-parts/header_menu');?>
-
+<!-- Banner container -->
 <div class="videocontainer-k">
+    <!-- Banner velden van AFC voor afbeelding, titel en tekst-->
     <?php $image = get_field('banner_image'); ?>
     <img class="banner-class" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"></img>
     <div class="overlay">
@@ -14,7 +15,7 @@
         </div>
     </div>
 </div>
-
+<!-- container velden voor de content "over ons" -->
         <div class="container about-us">
             <div class="row">
                 <div class="col-8">

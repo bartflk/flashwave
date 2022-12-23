@@ -1,4 +1,5 @@
 <div class="container gx-0 header-menu">
+    <!-- Dit bestand is de menu van de header -->
         <div class="row d-flex m-0">
             <div class="col-12 px-0 m-0">
                 <div class="phone">
@@ -16,6 +17,7 @@
                     </svg>
                 </button>
             <div class="collapse navbar-collapse" id="navbarcollapsemenu">
+                <!-- Menu wordt met een wp_nav_menu functie aangeroepen met de naam main menu -->
                 <?php
                     wp_nav_menu(
                     array(

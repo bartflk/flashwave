@@ -1,15 +1,16 @@
 <?php /* Template Name: Design je eige */ ?>
 
-
+<!-- Header en menu parts -->
 <?php get_header(); ?>
 <?php get_template_part('/template-parts/header_menu');?>
 
-
+<!-- Container voor custom print pagina -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6 justify-content-center">
             <div class="designblock">
                 <h1>Design je eige kleding!</h1>
+                <!-- Contact form wordt met een do_shortcode functie aangeroepen -->
                 <?php
                 echo do_shortcode('[contact-form-7 id="216" title="Custom print"]')
                 ?>

@@ -42,19 +42,19 @@ if ( ! function_exists( 'myfirsttheme_setup' ) ) :
 
 
 
-  
+  // support voor woocommerce
     add_action( 'after_setup_theme', 'woocommerce_support' );
     function woocommerce_support() {
        add_theme_support( 'woocommerce' );
     }                               
   
   add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
-  
+  // geen woocommerce css bestanden laden
   add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 
 
-
+// Dit laat de admin bar niet zien als je ingelogd bent
   function my_function_admin_bar(){ return false; }
 add_filter( 'show_admin_bar' , 'my_function_admin_bar');
 
@@ -62,7 +62,7 @@ add_filter('use_block_editor_for_post', '__return_false');
 add_action('wp_enqueue_scripts', function(){
     wp_dequeue_style('wp-block-library');
 });
-
+// registratie van menu's die gebruikt gaan worden op de website
 function register_my_menus() {
   register_nav_menus(
     array(
@@ -72,7 +72,7 @@ function register_my_menus() {
    );
  }
  add_action( 'init', 'register_my_menus' );
-
+// Support voor thumbnails, formats en page thumbnails
  add_theme_support( 'post-thumbnails', array( 'page' ) );  // Pages only
  add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
  add_theme_support( 'post-thumbnails' ); 
@@ -81,7 +81,7 @@ function register_my_menus() {
   add_action( 'init', 'create_posttype' );
   
   function add_theme_scripts() {
-
+// Alle CSS en Scripts worden hier ingeladen en neergezet
     wp_enqueue_style( 'cssreset', get_template_directory_uri() . '/assets/css/reset.css', array(), '');  
     wp_enqueue_style( 'iconlibrary', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' );
@@ -100,9 +100,11 @@ function register_my_menus() {
   function themesharbor_disable_woocommerce_block_styles() {
     wp_dequeue_style( 'wc-blocks-style' );
   }
+  //override van woocommerce naar bootstrap css
   add_action( 'wp_enqueue_scripts', 'themesharbor_disable_woocommerce_block_styles' );
   add_filter( 'woocommerce_show_page_title', '__return_false' );
 
+  // Opties pagina maken in de admin panel om de footer informatie beheerbaar te maken
   if( function_exists('acf_add_options_page') ) {
     
     acf_add_options_page(array(
@@ -126,7 +128,7 @@ add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_
 function woocommerce_custom_product_add_to_cart_text() {
     return __( 'Koop nu', 'woocommerce' );
 }
-
+// Veranderen van namen op de admin pannel
 function wpb_woo_endpoint_title( $title, $id ) {
            
   if ( is_wc_endpoint_url( 'orders' ) && in_the_loop() ) {
@@ -149,13 +151,14 @@ elseif ( is_wc_endpoint_url( 'downloads' ) && in_the_loop() ) {
 add_filter( 'the_title', 'wpb_woo_endpoint_title', 10, 2 );
 
 
-
+// Functie om een dropdown te maken voor wordpress custom forms 7 plugin
+// Alle producten moeten in een dropdown komen om ze selecteerbaar te maken
 function wpcf7_form_dropdown_products ( $scanned_tag, $replace ) {  
   
   if ( $scanned_tag['name'] != 'product' )  
       return $scanned_tag;
 
-  
+  // loop over alle producten
   $rows = get_posts(
     array ( 
      'post_type' => 'product',
@@ -181,5 +184,5 @@ function wpcf7_form_dropdown_products ( $scanned_tag, $replace ) {
 
   return $scanned_tag;  
 }  
-
+// Voeg toe een tag die je kan roepen in de form plugin overzicht 
 add_filter( 'wpcf7_form_tag', 'wpcf7_form_dropdown_products', 10, 2);  

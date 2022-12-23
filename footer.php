@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-xl-6 text-center">
                 <div class="colbox">
+                    <!-- logo's die zijn van bootstrap opgehaald -->
                     <a class="copyrighttext" href="">Textiel drukkerij</a>
                     <a href="#" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-twitter"></a>
@@ -12,6 +13,7 @@
             </div>
                 <div class="col-12 col-sm-12 col-md-6 col-xl-6">
                     <div class="colbox">
+                        <!-- Alle informatie die wordt uit de optie pagina gehald en ACF velden gestopt zoals straat, postcode en zo voort-->
                         <div class="fancyline"></div>
                         <p class="footerinfo" ><?= get_field('straat', 'options'); ?></p>
                         <p class="footerinfo" ><?= get_field('plaats_en_postcode', 'options'); ?></p>

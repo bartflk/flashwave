@@ -1,8 +1,12 @@
 <?php get_header(); ?>
+<!-- get header functie om de header op te halen -->
 <div class="videocontainer">
+    <!-- Functie om de banner image op te halen met ACF -->
         <?php $image = get_field('banner_image'); ?>
+        <!-- Video wordt opgehald van de custom velden met een url -->
         <video muted autoplay loop playsinline src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"> </video>
         <div class="overlay">
+            <!-- header menu wordt opgehald -->
             <?php get_template_part('/template-parts/header_menu'); ?>
             <div class="sitetitle">
                 <div class="maintitle ">
@@ -16,9 +20,11 @@
         </div>
     </div>
 
+<!-- Container voor de over ons banner -->
 <div class="container my-5">
     <div class="row justify-content-center" >
         <div class="col-12 col-md-6">
+            <!-- banner over ons -->
             <p class="overonstext"> <?php echo get_field('over_ons'); ?> </p>
         </div>
     </div>
@@ -27,6 +33,7 @@
 <div class="container-fluid my-5">
     <div class="row justify-content-center" >
         <div class="col-12 g-0">
+            <!-- Banner veld wordt opgeroepen -->
         <?php $image = get_field('banner'); ?>
         <img class="banner-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"></img>
         </div>
@@ -35,6 +42,7 @@
 
 <div class="container my-5">
     <div class="row justify-content-center" id="category">
+        <!-- While loop over alle categorieen die er bestaan, elke categorie heeft een image en een titel. Die worden geroepen met ACF velden -->
         <?php
             if( have_rows('category_field') ):
                 while( have_rows('category_field') ) : the_row();
@@ -54,5 +62,5 @@
 </div>
 
 
-
+<!-- Banner container -->
 <?php get_footer(); ?>
